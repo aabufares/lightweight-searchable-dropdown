@@ -1,8 +1,8 @@
-# Searchable Dropdown Component
+x# Searchable Dropdown Component
 A lightweight and customizable searchable dropdown component with support for active/inactive options, trimming spaces, highlighting selected items, and arrow indicators.
 
 ## Features
-![Searchable Dropdown Example](img/dropdown-example.gif)
+![Searchable Dropdown Example](examples/demo.gif)
 
 - Search functionality for filtering options dynamically.
 - Highlighting the selected option.
