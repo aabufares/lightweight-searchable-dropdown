@@ -1,1 +1,220 @@
-<html></html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Searchable Dropdown Component</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+            background-color: #f9f9f9;
+            color: #333;
+        }
+        header {
+            background-color: #007bff;
+            color: white;
+            padding: 20px 0;
+            text-align: center;
+        }
+        .container {
+            max-width: 900px;
+            margin: 20px auto;
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+        h1{
+          color: #fff;
+        }
+        h2, h3 {
+            color: #007bff;
+        }
+        pre {
+            background: #f4f4f4;
+            padding: 10px;
+            border-radius: 5px;
+            overflow-x: auto;
+        }
+        pre code {
+            color: #c7254e;
+            background-color: transparent;
+        }
+        ul {
+            margin: 10px 0;
+            padding-left: 20px;
+        }
+        ul li {
+            margin-bottom: 8px;
+        }
+        footer {
+            text-align: center;
+            margin-top: 20px;
+            padding: 10px;
+            background: #007bff;
+            color: white;
+        }
+        a {
+            color: #007bff;
+            text-decoration: none;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+        .code-block {
+            background: #eee;
+            padding: 10px;
+            border-radius: 5px;
+            margin: 10px 0;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>Searchable Dropdown Component</h1>
+    <p>A lightweight and customizable dropdown for advanced functionality.</p>
+</header>
+
+<div class="container">
+    <h2>Features</h2>
+    <ul>
+        <li>Search functionality for filtering options dynamically.</li>
+        <li>Highlighting the selected option.</li>
+        <li>Support for enabling/disabling options with an <code>isActive</code> flag.</li>
+        <li>Dynamic updates to options at runtime.</li>
+        <li>Visual arrow indicators for dropdown state.</li>
+        <li>Fully customizable styles using CSS.</li>
+    </ul>
+
+    <h2>Installation</h2>
+    <ol>
+        <li>Clone the repository:
+            <pre><code>git clone https://github.com/aabufares/lightweight-searchable-dropdown.git</code></pre>
+        </li>
+        <li>Include the <code>dropdown.js</code> and <code>style.css</code> files in your project.</li>
+    </ol>
+
+    <h3>Usage</h3>
+    <div class="code-block">
+        <pre><code>&lt;div id="dropdown"&gt;&lt;/div&gt;
+&lt;script src="dropdown.js"&gt;&lt;/script&gt;
+&lt;script&gt;
+const dropdown = new SearchableDropdown("dropdown", {
+    options: [
+        { value: "option1", label: "Option 1", isActive: true },
+        { value: "option2", label: "Option 2", isActive: false },
+        { value: "option3", label: "Option 3", isActive: true }
+    ],
+    placeholder: "Type to search...",
+    required: true,
+    onchange: (selectedItem) =&gt; console.log("Selected:", selectedItem)
+});
+&lt;/script&gt;</code></pre>
+    </div>
+
+    <h2>Options Configuration</h2>
+    <p>Customize the behavior and appearance of the dropdown:</p>
+    <ul>
+        <li><strong>options</strong>: Required array of option objects with <code>value</code>, <code>label</code>, and <code>isActive</code> properties.</li>
+        <li><strong>placeholder</strong>: Optional placeholder text when no value is selected. Default: <code>"Search..."</code>.</li>
+        <li><strong>defaultValue</strong>: Optional preselected value. Must match a valid <code>value</code> from <code>options</code>.</li>
+        <li><strong>required</strong>: Optional boolean to mark the field as required. Default: <code>false</code>.</li>
+        <li><strong>disabled</strong>: Optional boolean to disable the dropdown. Default: <code>false</code>.</li>
+        <li><strong>onchange</strong>: Optional callback triggered on selection. Returns the selected item's <code>value</code> and <code>label</code>.</li>
+    </ul>
+
+    <h2>Examples</h2>
+    <p>Explore various scenarios in the <strong>examples</strong> folder:</p>
+    <ul>
+        <li><strong>basic-example.html</strong>: Basic implementation with static options.</li>
+        <li><strong>advanced-example.html</strong>: Demonstrates features like inactive options and highlighting.</li>
+        <li><strong>dynamic-update.html</strong>: Illustrates dynamic updates.</li>
+        <li><strong>casecade-example.html</strong>: Demonstrates cascading dropdown behavior.</li>
+    </ul>
+
+    <h3>1. Basic Example</h3>
+    <div class="code-block">
+        <pre><code>const dropdown = new SearchableDropdown("basicDropdown", {
+    options: [
+        { value: "option1", label: "Option 1", isActive: true },
+        { value: "option2", label: "Option 2", isActive: true },
+        { value: "option3", label: "Option 3", isActive: true }
+    ]
+});</code></pre>
+    </div>
+
+    <h3>2. Dynamic Updates</h3>
+    <div class="code-block">
+        <pre><code>dropdown.updateOptions([
+    { value: "newOption1", label: "New Option 1", isActive: true },
+    { value: "newOption2", label: "New Option 2", isActive: true },
+    { value: "newOption3", label: "New Option 3", isActive: false } // Disabled
+]);</code></pre>
+    </div>
+
+    <h3>3. Advanced Example</h3>
+    <div class="code-block">
+        <pre><code>const dropdown = new SearchableDropdown("advancedDropdown", {
+    options: [
+        { value: "advanced1", label: "Advanced Option 1", isActive: true },
+        { value: "advanced2", label: "Advanced Option 2", isActive: false },
+        { value: "advanced3", label: "Advanced Option 3", isActive: true }
+    ],
+    placeholder: "Choose an advanced option...",
+    defaultValue : "advanced3",
+    onchange: (selectedItem) =&gt; console.log("You selected:", selectedItem)
+});</code></pre>
+    </div>
+
+    <h3>4. Disabled/Readonly Dropdown</h3>
+    <div class="code-block">
+        <pre><code>const dropdown = new SearchableDropdown("basicDropdown", {
+    options: [
+        { value: "option1", label: "Option 1", isActive: true },
+        { value: "option2", label: "Option 2", isActive: true },
+        { value: "option3", label: "Option 3", isActive: true }
+    ],
+    disabled: true
+});</code></pre>
+    </div>
+
+    <h2>Folder Structure</h2>
+    <pre><code>lightweight-searchable-dropdown/
+│
+├── README.md                # Main documentation file
+├── index.html               # HTML documentation file
+├── js/
+│   └── dropdown.js          # JavaScript for the dropdown component
+├── css/
+│   └── dropdown.css         # CSS for styling the dropdown
+└── examples/
+    ├── basic-example.html   # Basic usage example
+    ├── advanced-example.html # Advanced features example
+    ├── casecade-example.html # Cascading dropdown example
+    ├── disabled-example.html # Disabled/readonly example
+    └── dynamic-update-example.html  # Demonstrates dynamic updates</code></pre>
+
+    <h2>Contributing</h2>
+    <p>Contributions are welcome! You can:</p>
+    <ul>
+        <li>Report bugs or request features by opening an issue.</li>
+        <li>Fork the repository and submit a pull request with your changes.</li>
+    </ul>
+
+    <h2>License</h2>
+    <p>This project is licensed under the <strong>MIT License</strong>.</p>
+
+    <h2>Author</h2>
+    <p>This project is developed and maintained by <strong>Ahmed ABUFARES</strong>.</p>
+    <ul>
+        <li><strong>GitHub:</strong> <a href="https://github.com/aabufares">https://github.com/aabufares</a></li>
+        <li><strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/a-abufares/">https://www.linkedin.com/in/a-abufares</a></li>
+        <li><strong>Email:</strong> <a href="mailto:a.abufares@outlook.com">a.abufares@outlook.com</a></li>
+    </ul>
+</div>
+</body>
+</html>

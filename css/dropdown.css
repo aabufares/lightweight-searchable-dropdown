@@ -1,0 +1,92 @@
+﻿/*! lightweight_searchable_dropdown v1.0 | https://github.com/aabufares/lightweight-searchable-dropdown */
+.custom-dropdown-container {
+    position: relative;
+    width: 100%;
+}
+
+.custom-dropdown-wrapper .form-control:focus{
+  box-shadow: none !important;
+  border: 1px solid rgb(206 212 218);
+}
+.custom-search-box {
+    width: 100%;
+    padding: 8px;
+    box-sizing: border-box;
+    margin-bottom: 0;
+    width: 100%;
+    display: block;
+}
+
+.custom-dropdown-list {
+    max-height: 200px;
+    overflow-y: auto;
+    border: 1px solid #ced4da;
+    border-top: none;
+    display: none;
+    position: absolute;
+    width: 100%;
+    background: white;
+    z-index: 1000;
+    display: block;
+    border-radius: 0px 0px 0.3rem 0.3rem;
+    margin-top: -6px;
+    border-color: rgb(206 212 218);
+    border-top-width: 1px;
+    border-top-style: solid;
+}
+.custom-dropdown-container .form-control {
+    margin-bottom:0 !important;
+}
+
+    .custom-dropdown-list div {
+        padding: 8px;
+        cursor: pointer;
+    }
+
+        .custom-dropdown-list div:hover {
+            background-color: rgb(206 212 218);
+        }
+.selected-item {
+    background-color: #f0f0f0; /* Highlight color (Bootstrap primary blue) */
+}
+.dropdown-item.disabled-item {
+    color: #cccccc; /* Gray text color for disabled items */
+    cursor: not-allowed; /* Show 'not allowed' cursor */
+}
+
+
+.custom-dropdown-wrapper {
+    display: flex;
+    align-items: center;
+    position: relative;
+}
+
+.custom-search-box {
+    width: 100%;
+    padding-right: 30px; /* Add padding to avoid overlap with the arrow */
+}
+
+.dropdown-arrow {
+    position: absolute;
+    right: 10px;
+    pointer-events: none;
+    font-size: 16px;
+    color: #666; /* Arrow color */
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+    .dropdown-arrow.open {
+        transform: rotate(180deg); /* Rotate arrow when dropdown is open */
+    }
+
+.dropdown-item.disabled-item {
+    color: #cccccc; /* Gray text for disabled items */
+    pointer-events: none; /* Disable interaction */
+    cursor: not-allowed; /* Show "not allowed" cursor */
+}
+
+.selected-item {
+    background-color: #007bff; /* Highlight color */
+    color: #ffffff; /* Text color */
+}
